@@ -34,7 +34,7 @@ export class ClienteController {
     // R (READ - Buscar por ID)
     static async buscar(id: number) {
         try {
-            // Agora ClienteService está importado e a chamada é correta.
+           
             const cliente = await ClienteService.buscar(id); 
             if (cliente) {
                 console.log(`\n=== DADOS DO CLIENTE ID ${id} ===`);
