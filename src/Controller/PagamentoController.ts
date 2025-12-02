@@ -7,9 +7,9 @@ export class PagamentoController {
     static async cadastrar(clienteLogadoId: number, data: Omit<Pagamento, "id" | "dataCriacao">) {
         try {
             const id = await PagamentoService.criar(clienteLogadoId, data);
-            console.log(`✅ Pagamento registrado com sucesso! ID: ${id}`);
+            console.log(` Pagamento registrado com sucesso! ID: ${id}`);
         } catch (error: any) {
-            console.error(`❌ Erro ao registrar pagamento: ${error.message}`);
+            console.error(` Erro ao registrar pagamento: ${error.message}`);
         }
     }
 
@@ -20,7 +20,7 @@ export class PagamentoController {
             console.log("\n=== HISTÓRICO DE PAGAMENTOS ===");
             console.table(lista);
         } catch (error: any) {
-            console.error(`❌ Erro ao listar pagamentos: ${error.message}`);
+            console.error(` Erro ao listar pagamentos: ${error.message}`);
         }
     }
     
@@ -37,10 +37,10 @@ export class PagamentoController {
                     console.table(pagamento.itens);
                 }
             } else {
-                console.log(`⚠️ Pagamento ID ${id} não encontrado.`);
+                console.log(` Pagamento ID ${id} não encontrado.`);
             }
         } catch (error: any) {
-            console.error(`❌ Erro ao buscar pagamento: ${error.message}`);
+            console.error(` Erro ao buscar pagamento: ${error.message}`);
         }
     }
 
@@ -50,12 +50,12 @@ export class PagamentoController {
             const changesRaw = await PagamentoService.atualizar(usuarioLogadoId, id, data);
              const changes = changesRaw ?? 0; 
             if (changes > 0) {
-                console.log(`✅ Pagamento ID ${id} atualizado com sucesso. (${changes} campo(s) alterado(s))`);
+                console.log(`Pagamento ID ${id} atualizado com sucesso. (${changes} campo(s) alterado(s))`);
             } else {
-                console.log(`⚠️ Pagamento ID ${id} não encontrado ou nenhum dado novo fornecido.`);
+                console.log(` Pagamento ID ${id} não encontrado ou nenhum dado novo fornecido.`);
             }
         } catch (error: any) {
-            console.error(`❌ Erro ao atualizar pagamento: ${error.message}`);
+            console.error(` Erro ao atualizar pagamento: ${error.message}`);
         }
     }
     
@@ -65,12 +65,12 @@ export class PagamentoController {
             const changesRaw = await PagamentoService.deletar(usuarioLogadoId, id);
              const changes = changesRaw ?? 0; 
             if (changes > 0) {
-                console.log(`✅ Pagamento ID ${id} deletado com sucesso.`);
+                console.log(` Pagamento ID ${id} deletado com sucesso.`);
             } else {
-                console.log(`⚠️ Pagamento ID ${id} não encontrado.`);
+                console.log(` Pagamento ID ${id} não encontrado.`);
             }
         } catch (error: any) {
-             console.error(`❌ Erro ao deletar pagamento: ${error.message}`);
+             console.error(` Erro ao deletar pagamento: ${error.message}`);
         }
     }
 }
