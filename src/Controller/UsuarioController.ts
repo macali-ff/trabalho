@@ -11,9 +11,9 @@ export class UsuarioController {
     static async cadastrar(usuarioLogadoId: number, data: Omit<Usuario, "id" | "dataCriacao">) {
         try {
             const id = await UsuarioService.criar(usuarioLogadoId, data);
-            console.log(`✅ Usuário cadastrado com sucesso! ID: ${id}`);
+            console.log(` Usuário cadastrado com sucesso! ID: ${id}`);
         } catch (error: any) {
-            console.error(`❌ Erro ao cadastrar usuário: ${error.message}`);
+            console.error(` Erro ao cadastrar usuário: ${error.message}`);
         }
     }
 
@@ -24,16 +24,16 @@ export class UsuarioController {
             console.log("\n=== LISTA DE FUNCIONÁRIOS ===");
             console.table(lista);
         } catch (error: any) {
-            console.error(`❌ Erro ao listar usuários: ${error.message}`);
+            console.error(` Erro ao listar usuários: ${error.message}`);
         }
     }
     
     static async deletar(usuarioLogadoId: number, id: number) {
         try {
             await UsuarioService.deletar(usuarioLogadoId, id);
-            console.log(`✅ Usuário ID ${id} deletado com sucesso.`);
+            console.log(` Usuário ID ${id} deletado com sucesso.`);
         } catch (error: any) {
-             console.error(`❌ Erro ao deletar usuário: ${error.message}`);
+             console.error(` Erro ao deletar usuário: ${error.message}`);
         }
     }
 }
