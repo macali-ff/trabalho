@@ -7,7 +7,7 @@ class LogController {
             console.log("\n=== LOGS DO SISTEMA ===");
             console.table(lista);
         } catch (error: any) {
-            console.error(`❌ Erro ao listar logs: ${error.message}`);
+            console.error(` Erro ao listar logs: ${error.message}`);
         }
     }
 }
