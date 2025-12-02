@@ -6,9 +6,9 @@ export class AulaController {
     static async cadastrar(usuarioLogadoId: number, data: Omit<Aula, "id">) {
         try {
             const id = await AulaService.criar(usuarioLogadoId, data);
-            console.log(`✅ Aula cadastrada com sucesso! ID: ${id}`);
+            console.log(` Aula cadastrada com sucesso! ID: ${id}`);
         } catch (error: any) {
-            console.error(`❌ Erro ao cadastrar aula: ${error.message}`);
+            console.error(` Erro ao cadastrar aula: ${error.message}`);
         }
     }
 
@@ -19,7 +19,7 @@ export class AulaController {
             console.log("\n=== GRADE DE AULAS ===");
             console.table(lista);
         } catch (error: any) {
-            console.error(`❌ Erro ao listar aulas: ${error.message}`);
+            console.error(` Erro ao listar aulas: ${error.message}`);
         }
     }
 
@@ -28,12 +28,12 @@ export class AulaController {
         try {
             const changes = await AulaService.deletar(usuarioLogadoId, id);
             if (changes && changes > 0) {
-                console.log(`✅ Aula ID ${id} cancelada/removida com sucesso.`);
+                console.log(` Aula ID ${id} cancelada/removida com sucesso.`);
             } else {
-                console.log(`⚠️ Aula ID ${id} não encontrada.`);
+                console.log(` Aula ID ${id} não encontrada.`);
             }
         } catch (error: any) {
-             console.error(`❌ Erro ao deletar aula: ${error.message}`);
+             console.error(` Erro ao deletar aula: ${error.message}`);
         }
     }
 }
